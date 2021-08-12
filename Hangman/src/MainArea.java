@@ -26,7 +26,6 @@ public class MainArea {
 				
 				String wordChoice = getRandomWord();
 				System.out.println("\n*********************************************************************************************");
-				System.out.println("Word (hide later): " + wordChoice);
 				
 				guesses = 0;
 				guessLoop = true;
