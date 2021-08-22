@@ -4,7 +4,6 @@ import java.util.Scanner;
 public class MainArea {
 
 	public static void main(String[] args) {
-		
 		//game rules, if guesses = 6, game over
 		boolean gameLoop = true;
 		boolean guessLoop = true;
