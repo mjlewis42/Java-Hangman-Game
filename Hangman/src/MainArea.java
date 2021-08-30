@@ -13,7 +13,7 @@ public class MainArea {
 		String wordString = "";
 		Scanner myObj = new Scanner(System.in);
 		
-		LinkedList<String> let = new LinkedList<String>();
+		LinkedList<String> list = new LinkedList<String>();
 		
 		while(gameLoop) {
 			//gameMenu
@@ -21,7 +21,7 @@ public class MainArea {
 			choice1 = myObj.next();
 			
 			if(choice1.equals("1")){
-				fillList(let);
+				fillList(list);
 				
 				String wordChoice = getRandomWord();
 				System.out.println("\n*********************************************************************************************");
@@ -29,7 +29,7 @@ public class MainArea {
 				guesses = 0;
 				guessLoop = true;
 				
-				wordString = displayMenu(guesses, let, wordChoice);
+				wordString = initialMenu(guesses, list, wordChoice);
 				
 				while(guessLoop) {
 					//check if word was solved
@@ -54,7 +54,7 @@ public class MainArea {
 						}
 						else {
 							//a letter was guessed
-							deleteFromList(let, choice2);
+							deleteFromList(list, choice2);
 							
 							if(wordChoice.contains(choice2)) {
 								System.out.println("Correct Guess, next call function to fill in blank correctly\n\n");
@@ -64,7 +64,7 @@ public class MainArea {
 								guesses++;
 							}
 							
-							wordString = displayMenu2(wordString, guesses, let, wordChoice, choice2, guessLoop);
+							wordString = loopMenu(wordString, guesses, list, wordChoice, choice2, guessLoop);
 							System.out.println(wordString + " (" + wordChoice.length() + " Letters)");
 						}
 						
@@ -89,20 +89,20 @@ public class MainArea {
 		}
 	}
 	
-	public static String displayMenu(int guesses, LinkedList<String> let, String wordChoice) {
+	public static String initialMenu(int guesses, LinkedList<String> list, String wordChoice) {
 		System.out.println("------- Try to guess the word by typing in a letter at a time or guessing the full word at once.  ----------");
 		System.out.println(getPicture(guesses));
-		System.out.println("Letters Remaining: " + printList(let));
+		System.out.println("Letters Remaining: " + printList(list));
 		System.out.print("Your Word: ");
 		System.out.println(getWordBlanks(wordChoice.length()) + " (" + wordChoice.length() + " Letters)");
 		
 		return getWordBlanks(wordChoice.length());
 	}
 	
-	public static String displayMenu2(String wordString, int guesses, LinkedList<String> let, String wordChoice, String choice2, boolean guessLoop) {
+	public static String loopMenu(String wordString, int guesses, LinkedList<String> list, String wordChoice, String choice2, boolean guessLoop) {
 		System.out.println("------- Try to guess the word by typing in a letter at a time or guessing the full word at once.  ----------");
 		System.out.println(getPicture(guesses));
-		System.out.println("Letters Remaining: " + printList(let));
+		System.out.println("Letters Remaining: " + printList(list));
 		System.out.print("Your Word: ");
 		
 		
@@ -151,39 +151,39 @@ public class MainArea {
 		return blanks;
 	}
 	
-	public static LinkedList<String> fillList(LinkedList<String> let){
+	public static LinkedList<String> fillList(LinkedList<String> list){
 		//empty list
-		let.clear();
+		list.clear();
 
 		//fill list
-		let.add("a");
-		let.add("b");
-		let.add("c");
-		let.add("d");
-		let.add("e");
-		let.add("f");
-		let.add("g");
-		let.add("h");
-		let.add("i");
-		let.add("j");
-		let.add("k");
-		let.add("l");
-		let.add("m");
-		let.add("n");
-		let.add("o");
-		let.add("p");
-		let.add("q");
-		let.add("r");
-		let.add("s");
-		let.add("t");
-		let.add("u");
-		let.add("v");
-		let.add("w");
-		let.add("x");		
-		let.add("y");
-		let.add("z");
+		list.add("a");
+		list.add("b");
+		list.add("c");
+		list.add("d");
+		list.add("e");
+		list.add("f");
+		list.add("g");
+		list.add("h");
+		list.add("i");
+		list.add("j");
+		list.add("k");
+		list.add("l");
+		list.add("m");
+		list.add("n");
+		list.add("o");
+		list.add("p");
+		list.add("q");
+		list.add("r");
+		list.add("s");
+		listt.add("t");
+		list.add("u");
+		list.add("v");
+		list.add("w");
+		list.add("x");		
+		list.add("y");
+		list.add("z");
 		
-		return let;
+		return list;
 	}
 	
 	public static String getPicture(int guesses) {
